@@ -37,14 +37,35 @@
     </div>
 
     <!--Modal dialog directive-->
-    <modal-dialog box-width="50%" box-height="auto" show="modalAddFeatureModel">
+    <modal-dialog box-width="40%" box-height="auto" show="modalAddFeatureModel">
         <div id="coco-modal-content">
             <div class="row">
                 <h3>Add feature model</h3>
                 <hr id="coco-hr">
             </div>
             <div class="row">
-                <p>Hola</p>
+                <p>Fill the next form to add and upload a feature model in CoCo.</p>
+                <form>
+                    <label> Owner's name:
+                        <input type="text" ng-model="featureModel.owner"/>
+                    </label>
+                    <label> Owner's email:
+                        <input type="email" ng-model="featureModel.ownerEmail"/>
+                    </label>
+                    <label> Feature model's name:
+                        <input type="text" ng-model="featureModel.name"/>
+                    </label>
+                    <label> Feature model's description:
+                        <input type="text" ng-model="featureModel.description"/>
+                    </label>
+                    <label> Feature model's file:
+                        <input type="file" ng-model="featureModel.file"/>
+                    </label>
+                    <div class="text-center">
+                        <button ng-click="toggleModal()" class="btn btn-primary btn-xl"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+                    </div>
+
+                </form>
             </div>
         </div>
     </modal-dialog>
