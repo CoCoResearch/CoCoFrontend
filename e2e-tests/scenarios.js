@@ -5,20 +5,20 @@
 describe('my app', function() {
 
 
-  it('should automatically redirect to /view-uploadImage when location hash/fragment is empty', function() {
+  it('should automatically redirect to /view-featureModel when location hash/fragment is empty', function() {
     browser.get('index.html');
-    expect(browser.getLocationAbsUrl()).toMatch("/view-uploadImage");
+    expect(browser.getLocationAbsUrl()).toMatch("/view-featureModel");
   });
 
 
-  describe('view-uploadImage', function() {
+  describe('view-featureModel', function() {
 
     beforeEach(function() {
-      browser.get('index.html#!/view-uploadImage');
+      browser.get('index.html#!/view-featureModel');
     });
 
 
-    it('should render view-uploadImage when user navigates to /view-uploadImage', function() {
+    it('should render view-featureModel when user navigates to /view-featureModel', function() {
       expect(element.all(by.css('[ng-view] p')).first().getText()).
         toMatch(/partial for view 1/);
     });

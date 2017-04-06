@@ -1,0 +1,52 @@
+<section id="feature-models">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Configurator</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p>Add extended feature models in FaMa or CoCo format. Then, configure a product based in
+                your configuration constraints.</p>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-2 text-center">
+                <i class="fa fa-3x fa-sitemap text-primary sr-icons"></i>
+                <h3>1) Add a feature model</h3>
+                <p class="text-muted">Add your extended feature model in FaMa or CoCo format.</p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <i class="fa fa-3x fa-gear text-primary sr-icons"></i>
+                <h3>2) Configure a  product</h3>
+                <p class="text-muted">Select your feature model and choose the <b>configure</b> option.</p>
+            </div>
+        </div>
+        <hr id="coco-hr">
+        <br>
+    </div>
+
+    <div class="container text-center">
+        <button ng-click="toggleModal()" class="btn btn-primary btn-xl">Add feature model</button>
+    </div>
+
+    <!--Modal dialog directive-->
+    <modal-dialog box-width="50%" box-height="auto" show="modalAddFeatureModel">
+        <div id="coco-modal-content">
+            <div class="row">
+                <h3>Add feature model</h3>
+                <hr id="coco-hr">
+            </div>
+            <div class="row">
+                <p>Hola</p>
+            </div>
+        </div>
+    </modal-dialog>
+</section>
+

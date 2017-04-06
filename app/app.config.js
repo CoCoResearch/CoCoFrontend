@@ -4,8 +4,7 @@
 
 'use strict';
 
-angular.
-    module('cocoApp').
+angular.module('cocoApp').
     config(['$locationProvider' ,'$routeProvider',
         function config($locationProvider, $routeProvider) {
             $locationProvider.hashPrefix('!');
@@ -15,7 +14,7 @@ angular.
                     template: '<home></home>'
                 }).
                 when('/configurator', {
-                    template: '<configurator></configurator>'
+                    template: '<feature-model></feature-model>'
                 }).
                 otherwise('/');
         }

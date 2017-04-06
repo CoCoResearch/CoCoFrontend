@@ -1,10 +1,10 @@
 'use strict';
 
-describe('myApp.view-uploadImage module', function() {
+describe('myApp.view-featureModel module', function() {
 
-  beforeEach(module('myApp.view-uploadImage'));
+  beforeEach(module('myApp.view-featureModel'));
 
-  describe('view-uploadImage controller', function(){
+  describe('view-featureModel controllers', function(){
 
     it('should ....', inject(function($controller) {
       //spec body
