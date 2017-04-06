@@ -1,10 +1,10 @@
 'use strict';
 
-describe('myApp.view1 module', function() {
+describe('myApp.view-uploadImage module', function() {
 
-  beforeEach(module('myApp.view1'));
+  beforeEach(module('myApp.view-uploadImage'));
 
-  describe('view1 controller', function(){
+  describe('view-uploadImage controller', function(){
 
     it('should ....', inject(function($controller) {
       //spec body
