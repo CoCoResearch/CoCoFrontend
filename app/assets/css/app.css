@@ -27,6 +27,17 @@ label {
   color: white;
 }
 
+.coco-feature-model-info {
+  background-color: #399894;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+.coco-feature-model-info p {
+  margin: 10px;
+}
+
 #coco-hr{
   max-width: 100%;
   border-width: 1px;
