@@ -4,6 +4,10 @@
 
 'use strict';
 
+/**
+ * Defining the app routes. A constant with the server name
+ * is also defined.
+ */
 angular.module('cocoApp')
     .config(['$locationProvider' ,'$routeProvider',
         function config($locationProvider, $routeProvider) {
@@ -19,4 +23,4 @@ angular.module('cocoApp')
                 otherwise('/');
         }
     ])
-    .constant('SERVER_NAME', 'http://localhost:3000');
+    .constant('SERVER_NAME', 'http://localhost:9000');

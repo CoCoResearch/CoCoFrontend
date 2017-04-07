@@ -1,13 +1,47 @@
 'use strict';
 
+/**
+ * Relating Feature Modelview and controller.
+ */
 angular.module('cocoApp').
     component('featureModel', {
       templateUrl: 'views/view-featureModel/view-featureModel.html',
       controller: 'FeatureModelController'
     });
 
+/**
+ * Creating Feature Model controller.
+ */
 angular.module('cocoApp').
     controller('FeatureModelController', ['$routeParams', '$scope', '$http', 'SERVER_NAME', function($routeParams, $scope, $http, serverName) {
+
+        //-----------------------------------------------------------
+        // Get FMs
+        //-----------------------------------------------------------
+
+        /**
+         * Get the list of feature models in the data base.
+         * This is used to feed the view feature models table.
+         */
+        $http({
+            method: 'GET',
+            url: serverName + '/featureModels',
+        }).then(function successCallback(response){
+            $scope.featureModels = response.data.body;
+        }, function errorCallback(response){
+            console.log(response);
+        });
+
+
+        //-----------------------------------------------------------
+        // Create FM
+        //-----------------------------------------------------------
+
+        /**
+         * Initializing the featureModel structure which obtains the
+         * information from the user form.
+         * @type {{}}
+         */
         $scope.featureModel = {};
 
         /**
@@ -30,18 +64,24 @@ angular.module('cocoApp').
 
                 if(isValid){
                     $scope.featureModel.file = file;
+
+                    var payload = new FormData();
+                    payload = createFeatureModelPayload();
+
                     $http({
                      method: 'POST',
-                     url: serverName + '/featureModel',
-                     data: $scope.featureModel,
+                     url: serverName + '/featureModels',
+                     headers: {'Content-type' : undefined},
+                     data: payload,
                      }).then(function successCallback(response){
-
+                        console.log("Good");
                      }, function errorCallback(response){
-
+                        console.log(response);
                      });
                 }
             }
         }
+
 
         /**
          * Verifies if the extension of a file is includedin the accepted
@@ -58,9 +98,28 @@ angular.module('cocoApp').
             for(var i = 0; i < acceptedExtensions.length; i++){
                 if(extension.valueOf() == acceptedExtensions[i].valueOf()){
                     isValid = true;
+                    $scope.featureModel.extension = extension;
                 }
             }
             return isValid;
+        }
+
+        /**
+         * Creates the payload of the HTTP request when creating
+         * a new feature model.
+         * @returns {FormData}
+         */
+        function createFeatureModelPayload(){
+            var payload = new FormData();
+
+            payload.append('owner', $scope.featureModel.owner);
+            payload.append('ownerEmail', $scope.featureModel.ownerEmail);
+            payload.append('name', $scope.featureModel.name);
+            payload.append('description', $scope.featureModel.description);
+            payload.append('extension', $scope.featureModel.extension);
+            payload.append('file', $scope.featureModel.file);
+
+            return payload;
         }
     }
     ]);

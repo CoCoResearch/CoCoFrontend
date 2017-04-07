@@ -16,6 +16,7 @@
                 <br>
             </div>
         </div>
+        <hr id="coco-hr">
         <div class="row">
             <div class="col-lg-4 col-lg-offset-2 text-center">
                 <i class="fa fa-3x fa-sitemap text-primary sr-icons"></i>
@@ -28,12 +29,39 @@
                 <p class="text-muted">Select your feature model and choose the <b>configure</b> option.</p>
             </div>
         </div>
+        <br>
+        <div class="container text-center">
+            <button ng-click="toggleAddFeatureModelModal()" class="btn btn-primary btn-xl">Add feature model</button>
+        </div>
+        <br>
         <hr id="coco-hr">
         <br>
     </div>
 
-    <div class="container text-center">
-        <button ng-click="toggleAddFeatureModelModal()" class="btn btn-primary btn-xl">Add feature model</button>
+    <div class="container">
+        <div class="text-center">
+            <h3>Feature models</h3>
+            <br>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Owner</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="fm in featureModels">
+                    <td>{{fm.name}}</td>
+                    <td>{{fm.owner}}</td>
+                    <td>
+                        <button class="btn btn-info btn-m"><i class="fa fa-1x fa-gear text-primary sr-icons"></i> Configure</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <!--Modal dialog directive-->

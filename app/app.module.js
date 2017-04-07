@@ -4,6 +4,9 @@
 
 'use strict';
 
+/**
+ * Declaring the CoCoApp module and its dependencies.
+ */
 angular.module('cocoApp', [
     'ngRoute',
 ]);
