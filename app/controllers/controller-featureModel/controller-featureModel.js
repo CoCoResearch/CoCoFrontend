@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Relating Feature Modelview and controller.
+ * Relating Feature Model view and controller.
  */
 angular.module('cocoApp').
     component('featureModel', {
@@ -13,7 +13,7 @@ angular.module('cocoApp').
  * Creating Feature Model controller.
  */
 angular.module('cocoApp').
-    controller('FeatureModelController', ['$routeParams', '$scope', '$http', 'SERVER_NAME', function($routeParams, $scope, $http, serverName) {
+    controller('FeatureModelController', ['$scope', '$http', '$location', 'SERVER_NAME', function($scope, $http, $location, serverName) {
 
         //-----------------------------------------------------------
         // Get FMs
@@ -120,6 +120,15 @@ angular.module('cocoApp').
             payload.append('file', $scope.featureModel.file);
 
             return payload;
+        }
+
+        //-----------------------------------------------------------
+        // Redirection
+        //-----------------------------------------------------------
+
+        $scope.redirectToConfigurator = function(featureModelId) {
+            console.log("Id " + featureModelId);
+            $location.path('/configurator/' + featureModelId);
         }
     }
     ]);

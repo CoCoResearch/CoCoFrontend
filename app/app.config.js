@@ -20,6 +20,9 @@ angular.module('cocoApp')
                 when('/configurator', {
                     template: '<feature-model></feature-model>'
                 }).
+                when('/configurator/:featureModelId', {
+                    template: '<configurator></configurator>'
+                }).
                 otherwise('/');
         }
     ])
