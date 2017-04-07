@@ -4,8 +4,8 @@
 
 'use strict';
 
-angular.module('cocoApp').
-    config(['$locationProvider' ,'$routeProvider',
+angular.module('cocoApp')
+    .config(['$locationProvider' ,'$routeProvider',
         function config($locationProvider, $routeProvider) {
             $locationProvider.hashPrefix('!');
 
@@ -18,4 +18,5 @@ angular.module('cocoApp').
                 }).
                 otherwise('/');
         }
-    ]);
+    ])
+    .constant('SERVER_NAME', 'http://localhost:3000');

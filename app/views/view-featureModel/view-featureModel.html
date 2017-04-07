@@ -33,7 +33,7 @@
     </div>
 
     <div class="container text-center">
-        <button ng-click="toggleModal()" class="btn btn-primary btn-xl">Add feature model</button>
+        <button ng-click="toggleAddFeatureModelModal()" class="btn btn-primary btn-xl">Add feature model</button>
     </div>
 
     <!--Modal dialog directive-->
@@ -45,24 +45,24 @@
             </div>
             <div class="row">
                 <p>Fill the next form to add and upload a feature model in CoCo.</p>
-                <form>
+                <form name="formAddFeatureModel">
                     <label> Owner's name:
-                        <input type="text" ng-model="featureModel.owner"/>
+                        <input type="text" ng-model="featureModel.owner" required=""/>
                     </label>
                     <label> Owner's email:
-                        <input type="email" ng-model="featureModel.ownerEmail"/>
+                        <input type="email" ng-model="featureModel.ownerEmail" required=""/>
                     </label>
                     <label> Feature model's name:
-                        <input type="text" ng-model="featureModel.name"/>
+                        <input type="text" ng-model="featureModel.name" required=""/>
                     </label>
                     <label> Feature model's description:
                         <input type="text" ng-model="featureModel.description"/>
                     </label>
                     <label> Feature model's file:
-                        <input type="file" ng-model="featureModel.file"/>
+                        <input type="file" id="featureModel.file" required=""/>
                     </label>
                     <div class="text-center">
-                        <button ng-click="toggleModal()" class="btn btn-primary btn-xl"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+                        <button ng-click="submitAddFeatureModelForm(formAddFeatureModel)" class="btn btn-primary btn-xl"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
                     </div>
 
                 </form>
