@@ -18,9 +18,9 @@ angular.module('cocoApp')
                     template: '<home></home>'
                 }).
                 when('/configurator', {
-                    template: '<feature-model></feature-model>'
+                    template: '<feature-solution-graph></feature-solution-graph>'
                 }).
-                when('/configurator/:featureModelId', {
+                when('/configurator/:featureSolutionGraphId', {
                     template: '<configurator></configurator>'
                 }).
                 otherwise('/');

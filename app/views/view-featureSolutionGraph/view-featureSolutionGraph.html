@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <p>Add extended feature models in FaMa or CoCo format. Then, configure a product based in
+                <p>Add extended feature models in FaMa or feature solution graphs in CoCo format. Then, configure a product based in
                 your configuration constraints.</p>
                 <br>
             </div>
@@ -20,8 +20,8 @@
         <div class="row">
             <div class="col-lg-4 col-lg-offset-2 text-center">
                 <i class="fa fa-3x fa-sitemap text-primary sr-icons"></i>
-                <h3>1) Add a feature model</h3>
-                <p class="text-muted">Add your extended feature model in FaMa or CoCo format.</p>
+                <h3>1) Add a feature solution graph</h3>
+                <p class="text-muted">Add your extended feature solution graph in FaMa or CoCo format.</p>
             </div>
             <div class="col-lg-4 text-center">
                 <i class="fa fa-3x fa-gear text-primary sr-icons"></i>
@@ -31,7 +31,7 @@
         </div>
         <br>
         <div class="container text-center">
-            <button ng-click="toggleAddFeatureModelModal()" class="btn btn-primary btn-xl">Add feature model</button>
+            <button ng-click="toggleAddFeatureSolutionGraph()" class="btn btn-primary btn-xl">Add feature solution graph</button>
         </div>
         <br>
         <hr id="coco-hr">
@@ -40,7 +40,7 @@
 
     <div class="container">
         <div class="text-center">
-            <h3>Feature models</h3>
+            <h3>Feature solution graphs</h3>
             <br>
         </div>
 
@@ -53,11 +53,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="fm in featureModels">
-                    <td>{{fm.name}}</td>
-                    <td>{{fm.owner}}</td>
+                <tr ng-repeat="fsg in featureSolutionGraphs">
+                    <td>{{fsg.name}}</td>
+                    <td>{{fsg.owner}}</td>
                     <td>
-                        <button class="btn btn-info btn-m" ng-click="redirectToConfigurator(fm.id)"><i class="fa fa-1x fa-gear text-primary sr-icons"></i> Configure</button>
+                        <button class="btn btn-info btn-m" ng-click="redirectToConfigurator(fsg.id)"><i class="fa fa-1x fa-gear text-primary sr-icons"></i> Configure</button>
                     </td>
                 </tr>
             </tbody>
@@ -65,32 +65,32 @@
     </div>
 
     <!--Modal dialog directive-->
-    <modal-dialog box-width="40%" box-height="auto" show="modalAddFeatureModel">
+    <modal-dialog box-width="40%" box-height="auto" show="modalAddFeatureSolutionGraph">
         <div id="coco-modal-content">
             <div class="row">
-                <h3>Add feature model</h3>
+                <h3>Add a feature solution graph</h3>
                 <hr id="coco-hr">
             </div>
             <div class="row">
-                <p>Fill the next form to add and upload a feature model in CoCo.</p>
-                <form name="formAddFeatureModel">
+                <p>Fill the next form to add and upload a feature solution graph in FaMa and CoCo.</p>
+                <form name="formAddFeatureSolutionGraph">
                     <label> Owner's name:
-                        <input type="text" ng-model="featureModel.owner" required=""/>
+                        <input type="text" ng-model="featureSolutionGraph.owner" required=""/>
                     </label>
                     <label> Owner's email:
-                        <input type="email" ng-model="featureModel.ownerEmail" required=""/>
+                        <input type="email" ng-model="featureSolutionGraph.ownerEmail" required=""/>
                     </label>
                     <label> Feature model's name:
-                        <input type="text" ng-model="featureModel.name" required=""/>
+                        <input type="text" ng-model="featureSolutionGraph.name" required=""/>
                     </label>
                     <label> Feature model's description:
-                        <input type="text" ng-model="featureModel.description"/>
+                        <input type="text" ng-model="featureSolutionGraph.description"/>
                     </label>
                     <label> Feature model's file:
-                        <input type="file" id="featureModel.file" required=""/>
+                        <input type="file" id="featureSolutionGraph.file" required=""/>
                     </label>
                     <div class="text-center">
-                        <button ng-click="submitAddFeatureModelForm(formAddFeatureModel)" class="btn btn-primary btn-xl"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+                        <button ng-click="submitAddFeatureSolutionGraphForm(formAddFeatureSolutionGraph)" class="btn btn-primary btn-xl"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
                     </div>
 
                 </form>

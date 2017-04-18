@@ -4,16 +4,16 @@
  * Relating Feature Model view and controller.
  */
 angular.module('cocoApp').
-    component('featureModel', {
-      templateUrl: 'views/view-featureModel/view-featureModel.html',
-      controller: 'FeatureModelController'
+    component('featureSolutionGraph', {
+      templateUrl: '../../views/view-featureSolutionGraph/view-featureSolutionGraph.html',
+      controller: 'FeatureSolutionGraphController'
     });
 
 /**
  * Creating Feature Model controller.
  */
 angular.module('cocoApp').
-    controller('FeatureModelController', ['$scope', '$http', '$location', 'SERVER_NAME', function($scope, $http, $location, serverName) {
+    controller('FeatureSolutionGraphController', ['$scope', '$http', '$location', 'SERVER_NAME', function($scope, $http, $location, serverName) {
 
         //-----------------------------------------------------------
         // Get FMs
@@ -25,9 +25,9 @@ angular.module('cocoApp').
          */
         $http({
             method: 'GET',
-            url: serverName + '/featureModels',
+            url: serverName + '/featureSolutionGraphs',
         }).then(function successCallback(response){
-            $scope.featureModels = response.data.body;
+            $scope.featureSolutionGraphs = response.data.body;
         }, function errorCallback(response){
             console.log(response);
         });
@@ -42,35 +42,35 @@ angular.module('cocoApp').
          * information from the user form.
          * @type {{}}
          */
-        $scope.featureModel = {};
+        $scope.featureSolutionGraph = {};
 
         /**
          * Functionality related to the Add Feature Model modal.
          * Code taken from http://ilevin350.com/jekyll/update/2016/03/17/creating-modal-dialogs-with-angular-js-and-custom-directives.html
          */
-        $scope.modalAddFeatureModel = false;
-        $scope.toggleAddFeatureModelModal = function() {
-            $scope.modalAddFeatureModel = !$scope.modalAddFeatureModel;
+        $scope.modalAddFeatureSolutionGraph = false;
+        $scope.toggleAddFeatureSolutionGraph = function() {
+            $scope.modalAddFeatureSolutionGraph = !$scope.modalAddFeatureSolutionGraph;
         }
 
         /**
          * Submits the information of the feature model add form if
          * all data is well-formed and required data is provided.
          */
-        $scope.submitAddFeatureModelForm = function(formAddFeatureModel) {
-            if(formAddFeatureModel.$valid){
-                var file = document.getElementById("featureModel.file").files[0];
+        $scope.submitAddFeatureSolutionGraphForm = function(formAddFeatureSolutionGraph) {
+            if(formAddFeatureSolutionGraph.$valid){
+                var file = document.getElementById("featureSolutionGraph.file").files[0];
                 var isValid = reviewFileExtension(file.name);
 
                 if(isValid){
-                    $scope.featureModel.file = file;
+                    $scope.featureSolutionGraph.file = file;
 
                     var payload = new FormData();
                     payload = createFeatureModelPayload();
 
                     $http({
                      method: 'POST',
-                     url: serverName + '/featureModels',
+                     url: serverName + '/featureSolutionGraphs',
                      headers: {'Content-type' : undefined},
                      data: payload,
                      }).then(function successCallback(response){
@@ -98,7 +98,7 @@ angular.module('cocoApp').
             for(var i = 0; i < acceptedExtensions.length; i++){
                 if(extension.valueOf() == acceptedExtensions[i].valueOf()){
                     isValid = true;
-                    $scope.featureModel.extension = extension;
+                    $scope.featureSolutionGraph.extension = extension;
                 }
             }
             return isValid;
@@ -112,12 +112,12 @@ angular.module('cocoApp').
         function createFeatureModelPayload(){
             var payload = new FormData();
 
-            payload.append('owner', $scope.featureModel.owner);
-            payload.append('ownerEmail', $scope.featureModel.ownerEmail);
-            payload.append('name', $scope.featureModel.name);
-            payload.append('description', $scope.featureModel.description);
-            payload.append('extension', $scope.featureModel.extension);
-            payload.append('file', $scope.featureModel.file);
+            payload.append('owner', $scope.featureSolutionGraph.owner);
+            payload.append('ownerEmail', $scope.featureSolutionGraph.ownerEmail);
+            payload.append('name', $scope.featureSolutionGraph.name);
+            payload.append('description', $scope.featureSolutionGraph.description);
+            payload.append('extension', $scope.featureSolutionGraph.extension);
+            payload.append('file', $scope.featureSolutionGraph.file);
 
             return payload;
         }

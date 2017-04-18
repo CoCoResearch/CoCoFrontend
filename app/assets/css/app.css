@@ -28,9 +28,8 @@ label {
 }
 
 .coco-feature-model-info {
-  background-color: #399894;
+  border: solid 2px #399894;
   padding: 20px;
-  color: white;
   border-radius: 10px;
 }
 

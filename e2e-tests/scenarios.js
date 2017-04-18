@@ -5,20 +5,20 @@
 describe('my app', function() {
 
 
-  it('should automatically redirect to /view-featureModel when location hash/fragment is empty', function() {
+  it('should automatically redirect to /view-featureSolutionGraph when location hash/fragment is empty', function() {
     browser.get('index.html');
-    expect(browser.getLocationAbsUrl()).toMatch("/view-featureModel");
+    expect(browser.getLocationAbsUrl()).toMatch("/view-featureSolutionGraph");
   });
 
 
-  describe('view-featureModel', function() {
+  describe('view-featureSolutionGraph', function() {
 
     beforeEach(function() {
-      browser.get('index.html#!/view-featureModel');
+      browser.get('index.html#!/view-featureSolutionGraph');
     });
 
 
-    it('should render view-featureModel when user navigates to /view-featureModel', function() {
+    it('should render view-featureSolutionGraph when user navigates to /view-featureSolutionGraph', function() {
       expect(element.all(by.css('[ng-view] p')).first().getText()).
         toMatch(/partial for view 1/);
     });

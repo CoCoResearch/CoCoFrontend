@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Configure {{featureModel.name}}</h2>
+                <h2 class="section-heading">Configure {{featureSolutionGraph.name}}</h2>
                 <hr class="primary">
                 <br>
             </div>
@@ -13,14 +13,18 @@
         <div class="row">
             <div class="col-lg-6 col-sm-12">
                 <div class="text-center">
-                    <h3><i class="fa fa-sitemap" aria-hidden="true"></i> Feature model</h3>
+                    <h3><i class="fa fa-sitemap" aria-hidden="true"></i> Feature solution graph</h3>
                     <br>
                 </div>
                 <div class="coco-feature-model-info">
-                    <p><b>Name:</b> {{featureModel.name}}</p>
-                    <p><b>Owner:</b> {{featureModel.owner}} </p>
-                    <p><b>Owner's email:</b> {{featureModel.ownerEmail}} </p>
-                    <p><b>Description:</b> {{featureModel.description}} </p>
+                    <p><b>Name:</b> {{featureSolutionGraph.name}}</p>
+                    <p><b>Owner:</b> {{featureSolutionGraph.owner}} </p>
+                    <p><b>Owner's email:</b> {{featureSolutionGraph.ownerEmail}} </p>
+                    <p><b>Description:</b> {{featureSolutionGraph.description}} </p>
+                </div>
+                <br>
+                <div class="text-center">
+                    <button ng-click="toggleAddFeatureModel()" class="btn btn-primary btn-xl"> Add FaMa feature model</button>
                 </div>
             </div>
             <div class="col-lg-6 col-sm-12">
@@ -28,7 +32,32 @@
                     <h3><i class="fa fa-gear" aria-hidden="true"></i> Configuration</h3>
                     <br>
                 </div>
+                <div>
+                    <button class="btn btn-primary btn-xl"> Configure</button>
+                </div>
             </div>
         </div>
     </div>
+
+    <!--Modal dialog directive-->
+    <modal-dialog box-width="40%" box-height="auto" show="modalAddFeatureModel">
+        <div id="coco-modal-content">
+            <div class="row">
+                <h3>Add FaMa feature model</h3>
+                <hr id="coco-hr">
+            </div>
+            <div class="row">
+                <p>Upload your FaMa feature model to your feature solution graph.</p>
+                <form name="formAddFeatureModel">
+                    <label> Feature model's file:
+                        <input type="file" id="featureModel.file" required=""/>
+                    </label>
+                    <div class="text-center">
+                        <button ng-click="submitAddFeatureModelForm(formAddFeatureModel)" class="btn btn-primary btn-xl"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </modal-dialog>
 </section>

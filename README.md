@@ -25,8 +25,8 @@ app/                    --> all of the source files for the application
       interpolate-filter_test.js --> interpolate filter tests
   view1/                --> the view1 view template and logic
     view1.html            --> the partial template
-    controller-featureModel.js              --> the controller logic
-    controller-featureModel-test.js         --> tests of the controller
+    controller-featureSolutionGraph.js              --> the controller logic
+    controller-featureSolutionGraph-test.js         --> tests of the controller
   view2/                --> the view2 view template and logic
     view2.html            --> the partial template
     controller-home.js              --> the controller logic

@@ -1,10 +1,10 @@
 'use strict';
 
-describe('myApp.view-featureModel module', function() {
+describe('myApp.view-featureSolutionGraph module', function() {
 
-  beforeEach(module('myApp.view-featureModel'));
+  beforeEach(module('myApp.view-featureSolutionGraph'));
 
-  describe('view-featureModel controllers', function(){
+  describe('view-featureSolutionGraph controllers', function(){
 
     it('should ....', inject(function($controller) {
       //spec body
