@@ -13,6 +13,9 @@ angular.module('cocoApp').
 angular.module('cocoApp').
     controller('ConfiguratorController', ['$routeParams', '$scope', '$http', 'SERVER_NAME', function($routeParams, $scope, $http, serverName) {
 
+        $scope.featureModel = {};
+        $scope.featureModel.file = null;
+
         //-----------------------------------------------------------
         // Get FM
         //-----------------------------------------------------------
@@ -56,15 +59,49 @@ angular.module('cocoApp').
 
                     $http({
                         method: 'POST',
-                        url: serverName + '/featureSolutionGraphs/id/featureModels',
+                        url: serverName + '/featureSolutionGraphs/' + $scope.featureSolutionGraph.id + '/featureModels',
                         headers: {'Content-type' : undefined},
                         data: payload,
                     }).then(function successCallback(response){
                         console.log("Good");
+                        $scope.toggleAddFeatureModel();
                     }, function errorCallback(response){
                         console.log(response);
+                        $scope.toggleAddFeatureModel();
                     });
                 }
             }
+        }
+
+        /**
+         * Verifies if the extension of a file is includedin the accepted
+         * extensions list.
+         * @param fileName - String with the file name (name + extension)
+         * @returns {boolean} - Return true if the extension is valid
+         */
+        function reviewFileExtension(fileName) {
+            var acceptedExtensions = ["afm"];
+            var position = fileName.lastIndexOf(".") + 1;
+            var extension = fileName.slice(position);
+            var isValid = false;
+            console.log(fileName);
+            for(var i = 0; i < acceptedExtensions.length; i++){
+                if(extension.valueOf() == acceptedExtensions[i].valueOf()){
+                    isValid = true;
+                }
+            }
+            return isValid;
+        }
+
+        /**
+         * Creates the payload of the HTTP request when creating
+         * a new feature model.
+         * @returns {FormData}
+         */
+        function createFeatureModelPayload(){
+            var payload = new FormData();
+            payload.append('file', $scope.featureModel.file);
+
+            return payload;
         }
     }]);

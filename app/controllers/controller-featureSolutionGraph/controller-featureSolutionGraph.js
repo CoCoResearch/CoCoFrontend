@@ -23,14 +23,18 @@ angular.module('cocoApp').
          * Get the list of feature models in the data base.
          * This is used to feed the view feature models table.
          */
-        $http({
-            method: 'GET',
-            url: serverName + '/featureSolutionGraphs',
-        }).then(function successCallback(response){
-            $scope.featureSolutionGraphs = response.data.body;
-        }, function errorCallback(response){
-            console.log(response);
-        });
+        $scope.getFeatureSolutionGraphs = function() {
+            $http({
+                method: 'GET',
+                url: serverName + '/featureSolutionGraphs',
+            }).then(function successCallback(response){
+                $scope.featureSolutionGraphs = response.data.body;
+            }, function errorCallback(response){
+                console.log(response);
+            });
+        }
+
+        $scope.getFeatureSolutionGraphs();
 
 
         //-----------------------------------------------------------
@@ -75,8 +79,11 @@ angular.module('cocoApp').
                      data: payload,
                      }).then(function successCallback(response){
                         console.log("Good");
+                        $scope.toggleAddFeatureSolutionGraph();
+                        $scope.getFeatureSolutionGraphs();
                      }, function errorCallback(response){
                         console.log(response);
+                        $scope.toggleAddFeatureSolutionGraph();
                      });
                 }
             }
